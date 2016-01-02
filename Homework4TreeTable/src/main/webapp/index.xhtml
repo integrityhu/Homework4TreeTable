@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<f:facet name="first">
+		<meta http-equiv="X-UA-Compatible" content="EmulateIE8" />
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+		<meta content="index, follow" name="robots" />
+		<title>Fájlkezelő</title>
+	</f:facet>
+</h:head>
+<f:view contentType="text/html" locale="hu_HU">
+	<h:body>
+		<p:growl id="growl" showSummary="true" showDetail="true" sticky="true" />
+		<div class="wrapper row2">
+			<div id="container" class="clear">
+				<div id="page">
+					<h1>
+						<h:outputText value="Test zone" />
+					</h1>
+
+					<section id="services">
+						<h:form id="main" prependId="false">
+							<p:panelGrid>
+								<p:row>
+									<p:column>
+										<p:treeTable id="subzones" var="subzoneDataset"
+											value="#{combinedBean.subzones}">
+											<p:column>
+												<f:facet name="header">Name</f:facet>
+												<h:outputText value="#{subzoneDataset.name}" />
+											</p:column>
+                                            <p:column>
+                                                <f:facet name="header">Type</f:facet>
+                                                <h:outputText value="#{subzoneDataset.type}" />
+                                            </p:column>
+										</p:treeTable>
+
+									</p:column>
+								</p:row>
+							</p:panelGrid>
+						</h:form>
+					</section>
+				</div>
+			</div>
+		</div>
+
+	</h:body>
+</f:view>
+</html>
